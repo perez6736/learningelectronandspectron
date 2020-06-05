@@ -9,7 +9,7 @@ const app = new Application({
 });
 
 describe('Electron app tests', function () {
-
+  this.timeout(10000);
   //Start the electron app before each test
   beforeEach(() => {
     return app.start();
@@ -28,13 +28,13 @@ describe('Electron app tests', function () {
   });
 
   it('displays a title', async () => {
-    const title = await app.client.waitUntilWindowLoaded().getTitle();
+    const title = await app.client.getTitle();
     return assert.equal(title, 'Welcome');
   });
 
   it('has a input for name', async () => {
     const labelText = await app.client.getText('label[for="lname"]');
-    return assert.equal(labelText, 'Enter Name:');
+    return assert.equal(labelText, 'Enter your name:');
   });
 
   it('has a welcome on submitting name', async () => {
