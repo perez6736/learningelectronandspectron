@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
 const Application = require('spectron').Application;
-const electronPath = require('electron');
 
 const app = new Application({
-  path: electronPath,
-  args: [path.join(__dirname, '..')]
+  // path should point to exe file 
+  path: 'D:/Desktop/electrons/learningelectronandspectron/exefolder/testingelctron.exe'
 });
 
 describe('Electron app tests', function () {
